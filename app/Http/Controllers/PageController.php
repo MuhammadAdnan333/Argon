@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Member;
 
 class PageController extends Controller
 {
@@ -45,4 +46,6 @@ class PageController extends Controller
     {
         return view("pages.sign-up-static");
     }
+    
+    
 }
