@@ -1,13 +1,13 @@
 @extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
 
 @section('content')
-@include('layouts.navbars.auth.topnav', ['title' => 'Add Hotel'])
+@include('layouts.navbars.auth.topnav', ['title' => 'Add Employee'])
 <div class="container-fluid py-4">
     <div class="row">
         <div class="col-12">
             <div class="card mb-4">
                 <div class="card-header pb-0">
-                    <h1 class="mb-0 text-sm">Add Hotel</h1>
+                    <h1 class="mb-0 text-sm">Add Employee</h1>
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">
                     <form action="" method = "POST" class="mx-4">
@@ -27,7 +27,7 @@
                             <label for="example-tel-input" class="form-control-label">Address</label>
                             <input class="form-control" type="text" value="" id="address" name = "address">
                         </div> 
-                        <button type="submit" class="btn btn-warning float-start">Add Hotel</button>
+                        <button type="submit" class="btn btn-warning float-start">Add Employee</button>
                     </form>
                 </div>
             </div>

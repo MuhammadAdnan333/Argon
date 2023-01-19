@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\View;
 
 use Illuminate\Http\Request;
 use App\Models\Member;
+use App\Models\Employee;
 use App\Http\Controllers\PageController;
 
 
@@ -13,11 +14,11 @@ class HotelController extends Controller
     
    public function list(){
     
-    $data = Member::all();
+    $data = Member::paginate(5);
     return view('hotel',['members'=>$data]);
     }
-    function delete($id){
-        $data = Member::find($id)->delete();
+    function destroy($id){
+        Member::find($id)->delete();
         return redirect('hotel'); 
     }
     function showData($id){

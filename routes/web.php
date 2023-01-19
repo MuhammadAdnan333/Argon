@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HotelController;
+use App\Http\Controllers\EmployeeController;
 
 
 /*
@@ -34,6 +35,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\ResetPassword;
 use App\Http\Controllers\ChangePassword;
+use App\Http\Controllers\EmpController;
 
 Route::get('/', function () {
 	return redirect('/dashboard');
@@ -58,13 +60,23 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 	Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 	Route::get('/hotel', [HotelController::class, 'list'])->name('hotel');
-	Route::get('delete/{id}',[HotelController::class,'delete'])->name('delete/{id}');
+	Route::delete('/hotel/{id}',[HotelController::class,'delete'])->name('/hotel/{id}');
 	Route::get('edit/{id}',[HotelController::class,'showData'])->name('edit/{id}');
 	Route::POST('edit',[HotelController::class,'update'])->name('edit');
 	Route::POST('addHotel',[HotelController::class,'addData']);
 	Route::get('/addHotel', function () {
 		return view('addHotel');
 	});
+	Route::get('employeList',[EmployeeController::class,'show'])->name('employeList');
+	Route::POST('addEmployee',[EmployeeController::class,'addData']);
+	Route::get('/addEmployee', function () {
+		return view('addEmployee');
+	});
+	Route::delete('/employeList/{id}',[EmployeeController::class,'destroy'])->name('/employeList/{id}');
+	Route::get('updateEmploye/{id}',[EmployeeController::class,'showData'])->name('updateEmploye/{id}');
+	Route::POST('updateEmploye',[EmployeeController::class,'update'])->name('updateEmploye');
+
+
 
 
 	Route::get('/{page}', [PageController::class, 'index'])->name('page');
